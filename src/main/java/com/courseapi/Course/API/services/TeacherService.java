@@ -29,7 +29,7 @@ public class TeacherService {
 
     public void delete(int id){
         Optional<Teacher> teacher = teacherRepository.findById(id);
-        if(teacher.isPresent()) teacherRepository.delete(teacher.get());
+        if(teacher.isPresent()) teacherRepository.deleteByIdCustom(id);
         else throw new RuntimeException("Teacher not found for id: "+id);
     }
 

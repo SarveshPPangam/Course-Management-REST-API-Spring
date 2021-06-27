@@ -51,8 +51,10 @@ public class Student {
     }
 
     public void enroll(Course course){
-        this.courses.add(course);
-        course.getTeacher().addStudents(Set.of(this));
+        if(course.getTeacher()!=null) {
+            course.getTeacher().addStudents(Set.of(this));
+            this.courses.add(course);
+        }else throw new RuntimeException("Course doesn't have a teacher yet!!");
     }
 
 
@@ -101,6 +103,7 @@ public class Student {
 
     public void unEnroll(Course course) {
         this.courses.remove(course);
+        if(course.getTeacher()!=null)
         course.getTeacher().removeStudent(this);
     }
 

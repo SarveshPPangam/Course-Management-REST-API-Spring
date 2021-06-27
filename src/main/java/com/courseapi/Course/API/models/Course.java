@@ -25,7 +25,7 @@ public class Course {
 
 
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "teacher_id")
     @JsonIgnore
     private Teacher teacher_id;

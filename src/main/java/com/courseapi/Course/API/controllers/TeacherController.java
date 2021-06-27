@@ -72,7 +72,6 @@ public class TeacherController {
         Teacher teacher = teacherService.findById(id);
         teacher.getCourses().clear();
         teacher.getStudents().clear();
-//        delete teacher courses ok
         teacherService.delete(id);
         return new RedirectView("/api/teachers/");
     }
